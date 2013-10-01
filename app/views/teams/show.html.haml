@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team.name
+
+- if !(@team_members.empty?)
+  %p
+    %b Members: 
+    %br
+    - @team_members.each do |member|
+      = member.full_name
+
+- if !(@team_managers.empty?)
+  %p
+    %b Managers: 
+    %br
+    - @team_managers.each do |manager|
+      = manager.full_name  
+  
+  
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path
